@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { addHolding, getLiveQuote } from '../services/api';
 
-const AddHoldingModal = ({ onClose, onAdded }) => {
+const AddHoldingModal = ({ onClose, onAdded, onError }) => {
     const { portfolioId } = useAuth();
     const [formData, setFormData] = useState({
         symbol: '',
@@ -56,7 +56,8 @@ const AddHoldingModal = ({ onClose, onAdded }) => {
             onAdded();
         } catch (err) {
             console.error(err);
-            alert('Error adding holding');
+            const message = err.response?.data?.message || err.response?.data?.error || 'Error adding holding';
+            if (onError) onError(message);
         }
     };
 

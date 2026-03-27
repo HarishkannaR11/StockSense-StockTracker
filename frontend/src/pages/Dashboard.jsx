@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import LiveMarketChart from '../components/LiveMarketChart';
 import PnLChart from '../components/PnLChart';
 import { useAuth } from '../context/AuthContext';
 import { getPortfolio } from '../services/api';
@@ -48,10 +49,18 @@ const Dashboard = () => {
                 </div>
             </div>
 
-            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-                <h2 className="text-lg font-semibold text-gray-900 mb-1">Portfolio Chart</h2>
-                <p className="mb-4 text-sm text-gray-500">Invested value vs current value by stock.</p>
-                <PnLChart holdings={holdings} />
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+                    <h2 className="text-lg font-semibold text-gray-900 mb-1">Portfolio Chart</h2>
+                    <p className="mb-4 text-sm text-gray-500">Invested value vs current value by stock.</p>
+                    <PnLChart holdings={holdings} />
+                </div>
+
+                <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+                    <h2 className="text-lg font-semibold text-gray-900 mb-1">Live Market Prices</h2>
+                    <p className="mb-4 text-sm text-gray-500">Latest fetched market price by symbol.</p>
+                    <LiveMarketChart holdings={holdings} />
+                </div>
             </div>
         </div>
     );

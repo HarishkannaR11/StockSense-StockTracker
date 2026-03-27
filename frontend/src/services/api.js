@@ -24,6 +24,7 @@ export const getPortfolio = (id) => api.get(`/portfolios/${id}`);
 export const getHoldings = (portfolioId) => api.get(`/portfolios/${portfolioId}/holdings`);
 export const addHolding = (portfolioId, data) => api.post(`/portfolios/${portfolioId}/holdings`, data);
 export const getLiveQuote = (symbol) => api.get(`/market/quote/${encodeURIComponent(symbol)}`);
+export const refreshPortfolioPrices = (portfolioId) => api.post(`/portfolios/${portfolioId}/holdings/refresh-prices`);
 export const updatePrice = (id, currentPrice) => api.patch(`/holdings/${id}/price`, { currentPrice });
 export const deleteHolding = (id) => api.delete(`/holdings/${id}`);
 
