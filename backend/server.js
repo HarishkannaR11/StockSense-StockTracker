@@ -7,6 +7,9 @@ const authRoutes = require('./routes/authRoutes');
 const portfolioRoutes = require('./routes/portfolioRoutes');
 const holdingRoutes = require('./routes/holdingRoutes');
 const transactionRoutes = require('./routes/transactionRoutes');
+const chatRoutes = require('./routes/chatRoutes');
+const watchlistRoutes = require('./routes/watchlistRoutes');
+const alertRoutes = require('./routes/alertRoutes');
 
 const { protect } = require('./middleware/authMiddleware');
 
@@ -41,6 +44,9 @@ app.use('/api/auth', authRoutes);
 app.use('/api', protect, portfolioRoutes);
 app.use('/api', protect, holdingRoutes);
 app.use('/api', protect, transactionRoutes);
+app.use('/api', protect, chatRoutes);
+app.use('/api', protect, watchlistRoutes);
+app.use('/api', protect, alertRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

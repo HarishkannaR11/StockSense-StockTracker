@@ -19,6 +19,7 @@ export const getMe = () => api.get('/auth/me');
 
 // Portfolios
 export const getPortfolio = (id) => api.get(`/portfolios/${id}`);
+export const exportPortfolioCsv = (id) => api.get(`/portfolios/${id}/export/csv`, { responseType: 'blob' });
 
 // Holdings
 export const getHoldings = (portfolioId) => api.get(`/portfolios/${portfolioId}/holdings`);
@@ -32,5 +33,19 @@ export const deleteHolding = (id) => api.delete(`/holdings/${id}`);
 export const getTransactions = (portfolioId) => api.get(`/portfolios/${portfolioId}/transactions`);
 export const addTransaction = (portfolioId, data) => api.post(`/portfolios/${portfolioId}/transactions`, data);
 export const deleteTransaction = (id) => api.delete(`/transactions/${id}`);
+
+// Chatbot
+export const sendChatMessage = (message, history = []) => api.post('/chat/message', { message, history });
+
+// Watchlist
+export const getWatchlist = () => api.get('/watchlist');
+export const addWatchlistItem = (data) => api.post('/watchlist', data);
+export const deleteWatchlistItem = (id) => api.delete(`/watchlist/${id}`);
+
+// Alerts
+export const getAlerts = (portfolioId) => api.get(`/portfolios/${portfolioId}/alerts`);
+export const addAlert = (portfolioId, data) => api.post(`/portfolios/${portfolioId}/alerts`, data);
+export const checkAlerts = (portfolioId) => api.post(`/portfolios/${portfolioId}/alerts/check`);
+export const deleteAlert = (id) => api.delete(`/alerts/${id}`);
 
 export default api;

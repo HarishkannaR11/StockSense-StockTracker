@@ -6,6 +6,7 @@ import Holdings from './pages/Holdings';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Transactions from './pages/Transactions';
+import Watchlist from './pages/Watchlist';
 
 const App = () => {
     return (
@@ -21,6 +22,7 @@ const App = () => {
                             <Route path="/dashboard" element={<Dashboard />} />
                             <Route path="/holdings" element={<Holdings />} />
                             <Route path="/transactions" element={<Transactions />} />
+                            <Route path="/watchlist" element={<Watchlist />} />
                         </Route>
                     </Routes>
                 </div>

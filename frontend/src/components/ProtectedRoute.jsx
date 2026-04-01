@@ -1,5 +1,6 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import ChatBot from './ChatBot';
 import Navbar from './Navbar';
 
 const ProtectedRoute = () => {
@@ -13,6 +14,7 @@ const ProtectedRoute = () => {
             <main className="mx-auto max-w-7xl px-4 sm:px-6 py-6">
                 <Outlet />
             </main>
+            <ChatBot />
         </div>
     );
 };

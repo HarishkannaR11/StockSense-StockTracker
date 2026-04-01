@@ -24,6 +24,7 @@ const Navbar = () => {
                     <Link to="/dashboard" className={navClass('/dashboard')}>Dashboard</Link>
                     <Link to="/holdings" className={navClass('/holdings')}>Holdings</Link>
                     <Link to="/transactions" className={navClass('/transactions')}>Transactions</Link>
+                    <Link to="/watchlist" className={navClass('/watchlist')}>Watchlist</Link>
                     <div className="ml-2 hidden sm:flex items-center gap-3 border-l border-gray-200 pl-4">
                         <span className="text-sm text-gray-500">{user?.name}</span>
                     </div>

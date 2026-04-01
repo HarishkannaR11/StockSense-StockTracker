@@ -131,6 +131,8 @@ exports.refreshPortfolioPrices = async (req, res) => {
     }
 };
 
+exports.resolveLiveQuote = resolveLiveQuote;
+
 exports.getHoldings = async (req, res) => {
     try {
         const holdings = await Holding.find({ portfolioId: req.params.id });
